@@ -1,43 +1,27 @@
-#include <iostream>
+#include "Tricycle.hpp"
 
-class Tricycle
+// constructor
+Tricycle::Tricycle(int initialSpeed)
 {
-public:
-    int getSpeed();
-    void setSpeed(int speed);
-    void pedal();
-    void brake();
-private:
-    int speed;
-};
-
-int Tricycle::getSpeed()
-{
-    return speed;
+    setSpeed(initialSpeed);
 }
 
+// destructor
+Tricycle::~Tricycle()
+{
+    // do nothing
+}
+
+// set speed
 void Tricycle::setSpeed(int newSpeed)
 {
     if (newSpeed >= 0)
         speed = newSpeed;
 }
 
-void Tricycle::pedal()
-{
-    setSpeed(speed + 1);
-    std::cout << "\nPedaling; tricycle speed " << speed << " mph.\n";
-}
-
-void Tricycle::brake()
-{
-    setSpeed(speed - 1);
-    std::cout << "\nBreaking: tricycle speed " << speed << " mph.\n";
-}
-
 int main()
 {
-    Tricycle wichita;
-    wichita.setSpeed(0);
+    Tricycle wichita(5);
     wichita.pedal();
     wichita.pedal();
     wichita.brake();
