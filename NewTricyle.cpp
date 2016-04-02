@@ -3,6 +3,8 @@
 class Tricycle
 {
 public:
+    Tricycle(int initialAge);
+    ~Tricycle();
     int getSpeed();
     void setSpeed(int speed);
     void pedal();
@@ -11,11 +13,25 @@ private:
     int speed;
 };
 
+// constructor
+Tricycle::Tricycle(int initialSpeed)
+{
+    setSpeed(initialSpeed);
+}
+
+// destructor
+Tricycle::~Tricycle()
+{
+    // do nothing
+}
+
+// get speed
 int Tricycle::getSpeed()
 {
     return speed;
 }
 
+// set speed
 void Tricycle::setSpeed(int newSpeed)
 {
     if (newSpeed >= 0)
@@ -25,19 +41,18 @@ void Tricycle::setSpeed(int newSpeed)
 void Tricycle::pedal()
 {
     setSpeed(speed + 1);
-    std::cout << "\nPedaling; tricycle speed " << speed << " mph.\n";
+    std::cout << "\nPedaling, speed " << getSpeed() << " mph.";
 }
 
 void Tricycle::brake()
 {
     setSpeed(speed - 1);
-    std::cout << "\nBreaking: tricycle speed " << speed << " mph.\n";
+    std::cout << "Brake, speed " << getSpeed() << " mph.\n";
 }
 
 int main()
 {
-    Tricycle wichita;
-    wichita.setSpeed(0);
+    Tricycle wichita(5);
     wichita.pedal();
     wichita.pedal();
     wichita.brake();
@@ -45,3 +60,4 @@ int main()
     wichita.brake();
     return 0;
 }
+
